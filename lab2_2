@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+int main ()
+{
+	setlocale(LC_ALL, "Russian");
+	int S = 0;
+	int i=1;
+	int A;
+	int N=-1;
+	int j = 1;
+	int max = 0;
+	
+	while (N<=0)
+	{
+		cout << "Введите количество чисел в последовательности: ";
+		cin >> N;
+	}
+	
+
+	while (i <= N)
+	{
+		cin >> A;
+		if (A>0)
+		{
+			if (A > max)
+			{
+				max = A;
+				S = 1;
+				j = i;
+			}
+			else
+				if (max == A)
+					S = S + 1;
+		}
+		i = i + 1; 
+	}
+	
+	cout << "Максимальное значение: " << max << endl << "Номер максимального элемента: " << j<< endl;
+	cout << "Всего маскимальных элементов: " << S << endl << endl;
+
+	return 0;
+}
