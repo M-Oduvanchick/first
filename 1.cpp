@@ -16,11 +16,11 @@ int main()
 	}
 	for (int i = 1; i <= n / 2 + 1; i++)
 	{
-		for (int j = 1; j <= (n + 1) / 2 - i; j++)
+		for (int p = 1; p <= (n + 1) / 2 - i; p++)
 		{
 			cout << ' ';
 		}
-		for (int j = 1; j <= i * 2 - 1; j++)
+		for (int z = 1; z <= i * 2 - 1; z++)
 		{
 			cout << '*';
 		}
