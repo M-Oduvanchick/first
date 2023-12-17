@@ -1,30 +1,32 @@
 #include <iostream>
+#include <cmath>
+#include <math.h>
 using namespace std;
-int main()
-{
-	int n;
-	setlocale(LC_ALL, "Russian");
 
-	cout << "Введите длину основания: ";
-	cin >> n;
-	cout << endl;
-	while (n % 2 == 0)
+const double E = 1e-6;
+
+int main() {
+	setlocale(LC_ALL, "Rus");
+	double a, b, x;
+	double fb;
+	double fx;
+	cout << "������� a: ";
+	cin >> a;
+	cout << "������� b: ";
+	cin >> b;
+
+	while (abs(b - a) >= E)
 	{
-		cout << "Ошибка. Введите нечетное число: ";
-		cin >> n;
-		cout << endl;
+		x = (a + b) / 2;
+
+		fb = sqrt(1 - 0.4 * pow(b, 2)) - asin(b);
+		fx = sqrt(1 - 0.4 * pow(x, 2)) - asin(x);
+
+		if (fb * fx < 0)
+			a = x;
+		else
+			b = x;
 	}
-	for (int i = 1; i <= n / 2 + 1; i++)
-	{
-		for (int p = 1; p <= (n + 1) / 2 - i; p++)
-		{
-			cout << ' ';
-		}
-		for (int z = 1; z <= i * 2 - 1; z++)
-		{
-			cout << '*';
-		}
-		cout << endl;
-	}
+	cout << "x �����:" << b<< endl;
 	return 0;
 }
